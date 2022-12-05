@@ -1,0 +1,97 @@
+<style>
+    .paneSettings {
+        font-size: 14px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    .panel-background {
+        background: #0b2265;
+        color: white;
+    }
+
+    h5 {
+      
+        padding: 10px;
+        font-size:12px;
+
+    }
+</style>
+<div class="card paneSettings">
+    <div class="card-header panel-background"> Contractor Task
+        <button type="button" class="btn btn-sm btn-warning float-right" aria-label="Close" (click)="dismiss()"
+            style="margin-left:5px;">
+            <fa-icon [icon]="faTimesCircle"></fa-icon>
+        </button> </div>
+    <div class="card-body">
+        <div class="row">
+          
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header panel-background">
+                        Employee Information
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th> Name </th>
+                                    <th> Email </th>
+                                    <th> Role </th>
+                                    <th> Location </th>
+                                    <th> Hired Date </th>
+                                    <th> Associate Type </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{employee.name}}</td>
+                                    <td>{{employee.emailAddress}}</td>
+                                    <td>{{employee.role}}</td>
+                                    <td>{{employee.location}}</td>
+                                    <td>{{employee.dateofHire | date : 'MM/dd/yyyy'}}</td>
+                                    <td>{{employee.type}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="card-header panel-background">
+                            Contact Information
+                        </div>
+                        
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Address</th>
+                                    <th>City</th>
+                                    <th>Zip</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> {{contact.address}}</td>
+                                    <td>{{contact.city}}</td>
+                                    <td>{{contact.zipcode}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="id_companyName">Comments</label>
+                        <textarea type="text" class="form-control input-sm" id="id_companyName" autofocus
+                            [(ngModel)]="employee.comments"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button class="btn btn-warning float-right btn-sm" (click)="dismiss()"
+                        style="margin-left: 5px;">Cancel</button>
+                    <button class="btn btn-success float-right btn-sm" type="button" style="margin-left: 5px;" (click)="onComplete()">Complete</button>
+                    <button class="btn btn-success float-right btn-sm" type="button" style="margin-left: 5px;" (click)="onClaimStart();">Start</button>
+                </div>
+            </div>
+        </div>
+    </div>

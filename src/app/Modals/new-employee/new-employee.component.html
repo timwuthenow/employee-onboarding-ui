@@ -1,0 +1,223 @@
+<div class="card paneSettings">
+    <div class="card-header panel-background">
+        Onboard New Employee
+        <button type="button" class="btn btn-sm btn-warning float-right" aria-label="Close" (click)="dismiss()"
+            style="margin-left:5px;">
+            <fa-icon [icon]="faTimesCircle"></fa-icon>
+        </button>
+        <!-- <button type="button" class="btn btn-sm btn-warning float-right" aria-label="Close" (click)="dismiss()">
+            <fa-icon [icon]="faTerminal"></fa-icon>
+        </button> -->
+
+    </div>
+    <div class="card-body">
+        <!-- <div class="col-md-12">
+            <pre>
+                <p> {{ employee | json }}</p>
+                <p> {{ contact | json}}</p>
+                <p> {{ computerRequest | json}}</p>
+            </pre>        
+        </div> -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="id_companyName">Employee Name</label>
+                    <input type="text" class="form-control input-sm" id="id_companyName" autofocus
+                        [(ngModel)]="employee.name" />
+                    <small id="companyHelp" class="form-text text-muted">Employee full Name</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="id_companyName">Date of Hire </label>
+                    <input type="date" class="form-control input-sm" id="id_companyName"
+                        [(ngModel)]="dateofHire" />
+                    <small id="companyHelp" class="form-text text-muted">New Hire Date</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="id_companyName">Role</label>
+                    <select class="form-control input-sm" [(ngModel)]="employee.role">
+                        <option val="Consultant"> Consultant </option>
+                        <option val="Sr Consultant"> Sr Consultant </option>
+                        <option val="Principal Consultant"> Principal Consultant </option>
+                        <option val="Architect"> Architect </option>
+                        <option val="Business Analyst"> Business Analyst </option>
+                        <option val="Marketing"> Marketing </option>
+                        <option val="Sales Associate"> Sales Associate </option>
+                    </select>
+                    <small id="companyHelp" class="form-text text-muted">Employee Role</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="id_companyName">Associate Type</label>
+                    <select class="form-control input-sm" [(ngModel)]="employee.type">
+                        <option val="FTE"> Full Time </option>
+                        <option val="PTE"> Contractor </option>
+                    </select>
+                    <small id="companyHelp" class="form-text text-muted">Associate Type</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="id_companyName">Hiring Location</label>
+                    <select class="form-control input-sm" [(ngModel)]="employee.location">
+                        <option val="GA"> Atlanta , GA </option>
+                        <option val="CA"> San Francisco , CA </option>
+                        <option val="IL"> Chicago , IL </option>
+                        <option val="NY"> Manhattan , NY </option>
+                    </select>
+                    <small id="companyHelp" class="form-text text-muted">Location</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="id_companyName">Email Address</label>
+                    <input type="text" class="form-control input-sm" id="id_companyName" autofocus
+                        [(ngModel)]="employee.emailAddress" />
+                    <small id="companyHelp" class="form-text text-muted">Email Address</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="id_companyName">Annual Salary</label>
+                    <input type="number" class="form-control input-sm" id="id_companyName" autofocus
+                        [(ngModel)]="employee.annualSalary" />
+                    <small id="companyHelp" class="form-text text-muted">annual salary</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="id_companyName">Hourly Rate</label>
+                    <input type="number" class="form-control input-sm" id="id_companyName" autofocus
+                        [(ngModel)]="employee.hourlyRate" />
+                    <small id="companyHelp" class="form-text text-muted">Contractor Hourly Rate per hour</small>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        Contact Information
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="id_companyName">Employee Address</label>
+                                    <input type="text" class="form-control input-sm" id="id_companyName"
+                                        [(ngModel)]="contact.address" />
+                                    <small id="companyHelp" class="form-text text-muted">Address</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="id_companyName">City</label>
+                                    <input type="text" class="form-control input-sm" id="id_companyName"
+                                        [(ngModel)]="contact.city" />
+                                    <small id="companyHelp" class="form-text text-muted">City</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="id_companyName">Zipcode</label>
+                                    <input type="text" class="form-control input-sm" id="id_companyName"
+                                        [(ngModel)]="contact.zipcode" />
+                                    <small id="companyHelp" class="form-text text-muted">Zipcode</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" style="margin-top:5px;">
+                <div class="card">
+                    <div class="card-header">
+                        Request Machine
+                        <button class="btn btn-sm btn-primary float-right" (click)="getPrice()">Get Price</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="id_companyName">Screen Size</label>
+                                    <select class="form-control input-sm" [(ngModel)]="computerRequest.screensize">
+                                        <option val="14 ' Inch"> 14 ' Inch </option>
+                                        <option val="15 ' Inch"> 15 ' Inch </option>
+                                        <option val="17 ' Inch"> 17 ' Inch </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="id_companyName">Operating System</label>
+                                    <select class="form-control input-sm" [(ngModel)]="computerRequest.operatingSystem">
+                                        <option val="Windows"> Windows </option>
+                                        <option val="Mac OS"> Mac OS </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="id_companyName">Hardware</label>
+                                    <select class="form-control input-sm" [(ngModel)]="computerRequest.hardware">
+                                        <option val="lenevo"> Lenevo </option>
+                                        <option val="dell"> Dell </option>
+                                        <option val="hp"> HP </option>
+                                        <option val="mac"> Apple </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="id_companyName">CPU Size</label>
+                                    <select class="form-control input-sm" [(ngModel)]="computerRequest.cpu">
+                                        <option val="Intel 3rd Gen"> Intel 3rd Gen </option>
+                                        <option val="Intel 5th Gen"> Intel 5th Gen </option>
+                                        <option val="Intel 7th Gen"> Intel 7th Gen </option>
+                                        <option val="AMD Celeron"> AMD Celeron </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="id_companyName">Ram Size</label>
+                                    <select class="form-control input-sm" [(ngModel)]="computerRequest.ram">
+                                        <option val="4 GB"> 4 GB </option>
+                                        <option val="8 GB"> 8 GB </option>
+                                        <option val="16 GB"> 16 GB </option>
+                                        <option val="32 GB"> 32 GB </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="id_companyName">Condition</label>
+                                    <select class="form-control input-sm" [(ngModel)]="computerRequest.type">
+                                        <option val="New"> New </option>
+                                        <option val="Refurbished"> Refurbished </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                
+                                <label class="float-right"> Estimated Price : <span
+                                        style="color:green">{{computerRequest.price | currency}}</span> </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div style="margin-top:15px" class="col-md-12">
+                <button class="btn btn-warning float-right btn-sm" (click)="dismiss()"
+                    style="margin-left: 5px;">Cancel</button>
+                <button class="btn btn-primary float-right btn-sm" (click)="onboardEmployee()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

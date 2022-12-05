@@ -1,0 +1,8 @@
+embed-server --std-out=echo
+/subsystem=elytron/filesystem-realm=ApplicationRealm:add-identity(identity=AndrewSmith)
+/subsystem=elytron/filesystem-realm=ApplicationRealm:set-password(identity=AndrewSmith, clear={password=test123})
+/subsystem=elytron/filesystem-realm=ApplicationRealm:add-identity-attribute(identity=AndrewSmith, name=role, value=[admin,Administrators,rest-all,kie-server])
+/subsystem=elytron/filesystem-realm=ApplicationRealm:add-identity(identity=JohnStark)
+/subsystem=elytron/filesystem-realm=ApplicationRealm:set-password(identity=JohnStark, clear={password=test123})
+/subsystem=elytron/filesystem-realm=ApplicationRealm:add-identity-attribute(identity=bamAdmin, name=role, value=[admin,Administrators,rest-all,kie-server,HRGroup])
+stop-embedded-server
