@@ -17,7 +17,7 @@ export class PAMServices {
       this.kieSettings = {
         baseurl: "http://localhost:8080/kie-server",
         dmcontainerAlias: "DeluxeRules",
-        picontainerAlias: "DeluxeProcess",
+        picontainerAlias: "DeluxeProcess_1.0.0-SNAPSHOT",
         processId: "DeluxeProcess.EmployeeOnboarding",
         username: "bamAdmin",
         password: "ibmpam1!",
